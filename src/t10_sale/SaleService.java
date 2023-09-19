@@ -22,6 +22,7 @@ public class SaleService {
 		boolean run = true;
 		
 		while(run) {
+			System.out.println("연습용");
 			System.out.print("\n1:판매내역등록  2:상품검색  3:날짜검색  4:판매내역리스트  5:삭제  6:종료 ==> ");
 			int no = scanner.nextInt();
 			
