@@ -1,21 +1,21 @@
 package WindowBuilder;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class T01 extends JFrame {
 
 	private JPanel contentPane;
@@ -105,10 +105,11 @@ public class T01 extends JFrame {
 //		회원가입 버튼
 		btnInput = new JButton("회원가입");
 		btnInput.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				String str = "";
 				str += "아이디 : " + txtMid.getText() + "\n";
-				str += "비밀번호 : " + txtPwd.getText() + "\n";
+				str += "비밀번호 : " + txtPwd.getText()+ "\n";
 				str += "성 명 : " + txtName.getText() + "\n";
 				str += "소 속 : " + txtSosok.getText() + "\n";
 				JOptionPane.showMessageDialog(null, str + "\n회원가입이 되었습니다.");

@@ -2,8 +2,13 @@ package WindowBuilder;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -11,13 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import java.awt.SystemColor;
-import javax.swing.JCheckBox;
 
+@SuppressWarnings("serial")
 public class T02 extends JFrame {
 	
 	private ButtonGroup buttonGroup = new ButtonGroup();
@@ -82,6 +82,7 @@ public class T02 extends JFrame {
 		lblNewLabel_1.setBounds(32, 85, 88, 34);
 		pn2.add(lblNewLabel_1);
 		
+//		-----------------------------------------------------     //
 		rdbtnMale = new JRadioButton("남  자");
 		rdbtnMale.setFont(new Font("굴림", Font.PLAIN, 18));
 		rdbtnMale.setBounds(138, 48, 95, 27);
@@ -94,29 +95,31 @@ public class T02 extends JFrame {
 		rdbtnFemale.setBounds(263, 48, 95, 27);
 		buttonGroup.add(rdbtnFemale);
 		pn2.add(rdbtnFemale);
-		
+//		==> RadioButton 은 buttonGroup으로 변수 설정 후 하나로 묶어줘야 중복 선택이 되지 않음
+//		-----------------------------------------------------     //
 		JLabel lblMsg = new JLabel("메세지 출력");
+		lblMsg.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMsg.setBackground(SystemColor.activeCaption);
 		lblMsg.setFont(new Font("굴림", Font.PLAIN, 18));
-		lblMsg.setBounds(440, 133, -296, 34);
+		lblMsg.setBounds(87, 138, 391, 34);
 		pn2.add(lblMsg);
 		
-		JCheckBox chckbxHobby1 = new JCheckBox("등 산");
+		chckbxHobby1 = new JCheckBox("등 산");
 		chckbxHobby1.setFont(new Font("굴림", Font.PLAIN, 18));
 		chckbxHobby1.setBounds(134, 81, 80, 38);
 		pn2.add(chckbxHobby1);
 		
-		JCheckBox chckbxHobby2 = new JCheckBox("낚 시");
+		chckbxHobby2 = new JCheckBox("낚 시");
 		chckbxHobby2.setFont(new Font("굴림", Font.PLAIN, 18));
 		chckbxHobby2.setBounds(236, 81, 80, 38);
 		pn2.add(chckbxHobby2);
 		
-		JCheckBox chckbxHobby3 = new JCheckBox("수 영");
+		chckbxHobby3 = new JCheckBox("수 영");
 		chckbxHobby3.setFont(new Font("굴림", Font.PLAIN, 18));
 		chckbxHobby3.setBounds(338, 81, 80, 38);
 		pn2.add(chckbxHobby3);
 		
-		JCheckBox chckbxHobby4 = new JCheckBox("바 둑");
+		chckbxHobby4 = new JCheckBox("바 둑");
 		chckbxHobby4.setFont(new Font("굴림", Font.PLAIN, 18));
 		chckbxHobby4.setBounds(442, 81, 80, 38);
 		pn2.add(chckbxHobby4);

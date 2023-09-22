@@ -11,13 +11,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 @SuppressWarnings("serial")
-public class Test1 extends JFrame{
+public class T1 extends JFrame{
 	private JButton btnExit,btnOk;
 	private JLabel lbl, lblName, blbAge;
 	private JTextField txtName, txtAge;
 	private int xPos=140, yPos=0;
 	
-	public Test1() {
+	public T1() {
 		setTitle("연습");
 		setSize(350, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,6 +37,7 @@ public class Test1 extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "회원가입을 종료하겠습니다.");
 				System.exit(0);
 			}
 		});
@@ -44,7 +45,7 @@ public class Test1 extends JFrame{
 		btnOk.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "가입에 성공하셨습니다.");
+				JOptionPane.showMessageDialog(null, txtName.getText() + "님 가입에 성공하셨습니다.");
 			}
 		});
 		
@@ -103,7 +104,7 @@ public class Test1 extends JFrame{
 			
 			@Override
 			public void run() {
-				Test1 t1 = new Test1();
+				T1 t1 = new T1();
 				t1.setVisible(true);
 			}
 		});
