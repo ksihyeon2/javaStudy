@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -94,10 +97,21 @@ public class InsaMain extends JFrame {
 		
 		/* ====================================================== */
 		
-		// 사원 등록 버튼
+		// 사원 등록 버튼을 마우스로 클릭했을때 수행
 		btnInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new InsaInput();
+			}
+		});
+		
+		// 사원 등록 버튼을 키보드의 Enter키로 수행
+		btnInput.addKeyListener(new KeyAdapter() {
+				@Override
+			public void keyPressed(KeyEvent e) {
+			if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+				new InsaInput();
+			}
+				
 			}
 		});
 		
@@ -118,14 +132,32 @@ public class InsaMain extends JFrame {
 		// 전체 사원 조회 버튼
 		btnList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new InsaList();
 			}
 		});
 		
-		// 종료버튼
+		// 종료버튼을 마우스로 클릭했을때 수행처리
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "작업을 종료합니다.");
 				System.exit(0);
+			}
+		});
+		
+//		종료 버튼을 키보드 Enter키로 눌렀을때 수행처리
+		btnExit.addKeyListener(new KeyAdapter() {
+//			@Override
+////			눌렀다가 뗐을때 수행
+//			public void keyReleased(KeyEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			눌렀을때 수행
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					System.exit(0);			
+				}
 			}
 		});
 		
