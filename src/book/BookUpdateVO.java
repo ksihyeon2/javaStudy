@@ -1,12 +1,10 @@
 package book;
 
-public class shoppingVO {
+public class BookUpdateVO {
 	private int idx;
 	private String id;
+	private String name;
 	private String bookname;
-	private int item;
-	private int pricetot;
-	
 	public int getIdx() {
 		return idx;
 	}
@@ -15,9 +13,15 @@ public class shoppingVO {
 	}
 	public String getId() {
 		return id;
-	} 
+	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getBookname() {
 		return bookname;
@@ -25,21 +29,8 @@ public class shoppingVO {
 	public void setBookname(String bookname) {
 		this.bookname = bookname;
 	}
-	public int getItem() {
-		return item;
-	}
-	public void setItem(int item) {
-		this.item = item;
-	}
-	public int getPricetot() {
-		return pricetot;
-	}
-	public void setPricetot(int pricetot) {
-		this.pricetot = pricetot;
-	}
 	@Override
 	public String toString() {
-		return "shoppingVO [idx=" + idx + ", id=" + id + ", bookname=" + bookname + ", item=" + item + ", pricetot="
-				+ pricetot + "]";
+		return "bookUpdateVO [idx=" + idx + ", id=" + id + ", name=" + name + ", bookname=" + bookname + "]";
 	}
 }

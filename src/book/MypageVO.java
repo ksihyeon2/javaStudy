@@ -1,8 +1,9 @@
-package book;
+	package book;
 
-public class mypageVO {
+public class MypageVO {
 	private int idx;
 	private String id;
+	private String name;
 	private int point;
 	private String buydate;
 	
@@ -30,8 +31,14 @@ public class mypageVO {
 	public void setBuydate(String buydate) {
 		this.buydate = buydate;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
-		return "mypageVO [idx=" + idx + ", id=" + id + ", point=" + point + ", buydate=" + buydate + "]";
+		return "mypageVO [idx=" + idx + ", id=" + id + ", name=" + name + ", point=" + point + ", buydate=" + buydate + "]";
 	}
 }

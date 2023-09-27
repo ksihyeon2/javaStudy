@@ -1,6 +1,6 @@
 package book;
 
-public class bookVO {
+public class BookVO {
 	private int idx;
 	private String category;
 	private String bookname;
@@ -10,6 +10,7 @@ public class bookVO {
 	private int	price;
 	private double grade;
 	private String review;
+	private String cover;
 	
 	public int getIdx() {
 		return idx;
@@ -66,10 +67,16 @@ public class bookVO {
 		this.review = review;
 	}
 	
+	public String getCover() {
+		return cover;
+	}
+	public void setCover(String cover) {
+		this.cover = cover;
+	}
 	@Override
 	public String toString() {
-		return "bookVO [idx=" + idx + ", category=" + category + ", bookname=" + bookname + ", company=" + company
+		return "BookVO [idx=" + idx + ", category=" + category + ", bookname=" + bookname + ", company=" + company
 				+ ", writer=" + writer + ", publication=" + publication + ", price=" + price + ", grade=" + grade + ", review="
-				+ review + "]";
+				+ review + ", cover=" + cover + "]";
 	}
 }

@@ -1,15 +1,18 @@
 package book;
 
-public class memberVO {
+public class MemberVO {
 	private int idx;
 	private String id;
 	private String pw;
 	private String name;
+	private String gender;
 	private int age;
 	private String email;
 	private String phonenum;
 	private String address;
 	private String entry;
+	private String rating;
+	private int point;
 	
 	public int getIdx() {
 		return idx;
@@ -65,10 +68,28 @@ public class memberVO {
 	public void setEntry(String entry) {
 		this.entry = entry;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getRating() {
+		return rating;
+	}
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
 	@Override
 	public String toString() {
-		return "memberVO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", name=" + name + ", age=" + age + ", email=" + email
-				+ ", phonenum=" + phonenum + ", address=" + address + ", entry=" + entry + "]";
+		return "MemberVO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", age="
+				+ age + ", email=" + email + ", phonenum=" + phonenum + ", address=" + address + ", entry=" + entry
+				+ ", rating=" + rating + ", point=" + point + "]";
 	}
-	
 }

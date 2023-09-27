@@ -1,10 +1,11 @@
-package book;
+		package book;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,31 +17,34 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JRadioButton;
 
 @SuppressWarnings("serial")
-public class memberInput extends JFrame {
+public class MemberInput extends JFrame {
 
 	private JPanel contentPane,pn1,pn2,pn3;
-	private JTextField txtName, txtAge,txtEmail1,txtAddress,txtId,txtPw,txtEmail2;;
+	private JTextField txtName, txtAge,txtEmail1,txtId,txtPw,txtEmail2;;
 	private JLabel lblId,lblPw,lblName,lblAge,lblEmail,lblPhonenum,blbAddress,blbE;
 	private JLabel lblNewLabel_1,blbE_1,blbE_2;
 	private JTextField txtPhonenum1,txtPhonenum2,txtPhonenum3;
 	private JButton btnCheck,btnInput,btnClose;
+	private JRadioButton rdbtnMale, rdbtnFeMale;
+	private ButtonGroup btnGroup = new ButtonGroup();
 	
 	// 중복버튼 클릭유무를 확인하기위한 변수
 	private int idCheck = 0;
-	
 //	private 
 	
 	DAO dao = new DAO();
-	memberVO vo = null;
+	MemberVO vo = null;
+	private JTextField txtAddress;
 
 	
-	public memberInput() {
+	public MemberInput() {
 		setTitle("회원가입창");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(520, 640);
+		setSize(520, 682);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
@@ -54,12 +58,12 @@ public class memberInput extends JFrame {
 		pn1.setLayout(null);
 		
 		pn2 = new JPanel();
-		pn2.setBounds(0, 67, 504, 480);
+		pn2.setBounds(0, 67, 504, 520);
 		contentPane.add(pn2);
 		pn2.setLayout(null);
 		
 		pn3 = new JPanel();
-		pn3.setBounds(0, 544, 504, 57);
+		pn3.setBounds(0, 586, 504, 57);
 		contentPane.add(pn3);
 		pn3.setLayout(null);
 		
@@ -87,7 +91,7 @@ public class memberInput extends JFrame {
 		lblAge.setBounds(25, 224, 69, 28);
 		pn2.add(lblAge);
 		
-		lblEmail = new JLabel("E-mail");
+		lblEmail = new JLabel("성별");
 		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmail.setFont(new Font("굴림", Font.BOLD, 16));
 		lblEmail.setBounds(25, 287, 69, 28);
@@ -102,7 +106,7 @@ public class memberInput extends JFrame {
 		blbAddress = new JLabel("주소");
 		blbAddress.setHorizontalAlignment(SwingConstants.RIGHT);
 		blbAddress.setFont(new Font("굴림", Font.BOLD, 16));
-		blbAddress.setBounds(25, 413, 69, 28);
+		blbAddress.setBounds(25, 476, 69, 28);
 		pn2.add(blbAddress);
 		
 		txtId = new JTextField();
@@ -122,12 +126,12 @@ public class memberInput extends JFrame {
 		
 		txtEmail1 = new JTextField();
 		txtEmail1.setColumns(10);
-		txtEmail1.setBounds(112, 287, 109, 28);
+		txtEmail1.setBounds(112, 413, 109, 28);
 		pn2.add(txtEmail1);
 		
 		txtEmail2 = new JTextField();
 		txtEmail2.setColumns(10);
-		txtEmail2.setBounds(246, 287, 109, 28);
+		txtEmail2.setBounds(250, 413, 109, 28);
 		pn2.add(txtEmail2);
 		
 		txtPhonenum1 = new JTextField();
@@ -145,11 +149,6 @@ public class memberInput extends JFrame {
 		txtPhonenum3.setBounds(276, 350, 57, 28);
 		pn2.add(txtPhonenum3);
 		
-		txtAddress = new JTextField();
-		txtAddress.setColumns(10);
-		txtAddress.setBounds(112, 413, 152, 28);
-		pn2.add(txtAddress);
-		
 		JLabel lblNewLabel_1_1 = new JLabel("(비밀 번호는 숫자 또는 영문 15자 이내로 입력하세요.)");
 		lblNewLabel_1_1.setBounds(112, 129, 380, 22);
 		pn2.add(lblNewLabel_1_1);
@@ -162,7 +161,7 @@ public class memberInput extends JFrame {
 		pn1.add(lblNewLabel);
 		
 		blbE = new JLabel("@");
-		blbE.setBounds(226, 288, 22, 28);
+		blbE.setBounds(229, 412, 22, 28);
 		pn2.add(blbE);
 		
 		txtPw = new JTextField();
@@ -171,7 +170,7 @@ public class memberInput extends JFrame {
 		pn2.add(txtPw);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(370, 287, 122, 28);
+		scrollPane.setBounds(371, 413, 122, 28);
 		pn2.add(scrollPane);
 		
 		JComboBox cbEmail = new JComboBox();
@@ -201,10 +200,31 @@ public class memberInput extends JFrame {
 		blbE_2.setBounds(252, 349, 22, 28);
 		pn2.add(blbE_2);
 		
+		JLabel blbAddress_1 = new JLabel("E-mail");
+		blbAddress_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		blbAddress_1.setFont(new Font("굴림", Font.BOLD, 16));
+		blbAddress_1.setBounds(25, 413, 69, 28);
+		pn2.add(blbAddress_1);
+		
+		txtAddress = new JTextField();
+		txtAddress.setColumns(10);
+		txtAddress.setBounds(112, 476, 128, 28);
+		pn2.add(txtAddress);
+		
 		btnClose = new JButton("창닫기");
 		btnClose.setBounds(416, 10, 76, 37);
 		pn3.add(btnClose);
 		
+//		-----------------------------------------------------------------
+		rdbtnMale = new JRadioButton("남성");
+		rdbtnMale.setBounds(124, 287, 67, 28);
+		btnGroup.add(rdbtnMale);
+		pn2.add(rdbtnMale);
+		
+		rdbtnFeMale = new JRadioButton("여성");
+		rdbtnFeMale.setBounds(215, 287, 67, 28);
+		btnGroup.add(rdbtnFeMale);
+		pn2.add(rdbtnFeMale);		
 //		-------------------------------------------------------------   //
 		
 //	중복 확인 버튼
@@ -242,7 +262,7 @@ public class memberInput extends JFrame {
 //		가입 버튼
 		btnInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vo = new memberVO();
+				vo = new MemberVO();
 				String id = txtId.getText();
 				if(id.trim().equals("")) {
 					JOptionPane.showMessageDialog(null, "ID를 다시 입력하세요.");
@@ -312,6 +332,12 @@ public class memberInput extends JFrame {
 					}
 				}
 				String address = txtAddress.getText();
+				String gender;
+				if(rdbtnMale.isSelected()) {
+					gender = "남자";
+				} else {
+					gender = "여자";
+				}
 		
 				if(idCheck == 0) {
 					JOptionPane.showMessageDialog(null, "ID 중복을 확인해 주세요.");
@@ -319,6 +345,7 @@ public class memberInput extends JFrame {
 					vo.setId(id);
 					vo.setPw(pw);
 					vo.setName(name);
+					vo.setGender(gender);
 					vo.setAge(age);
 					vo.setEmail(email);
 					vo.setPhonenum(phoneNum);
@@ -330,6 +357,7 @@ public class memberInput extends JFrame {
 						txtId.setText("");
 						txtPw.setText("");
 						txtName.setText("");
+//						성별 초기화
 						txtAge.setText("");
 						txtEmail1.setText("");
 						txtEmail2.setText("");

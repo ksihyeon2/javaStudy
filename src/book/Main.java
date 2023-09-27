@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
 @SuppressWarnings("serial")
-public class main extends JFrame {
+public class Main extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtId;
@@ -26,13 +26,12 @@ public class main extends JFrame {
 	private JPasswordField txtPw;
 	
 	DAO dao = new DAO();
-	
+		
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					main frame = new main();
-					frame.setVisible(true);
+					new Main();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,7 +39,12 @@ public class main extends JFrame {
 		});
 	}
 
-	public main() {
+	public Main() {
+		getMainView();
+	}
+
+	private void getMainView() {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(376, 338);
 		contentPane = new JPanel();
@@ -107,46 +111,69 @@ public class main extends JFrame {
 //		로그인 버튼
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				memberVO vo = new memberVO();
+				MemberVO vo = new MemberVO();
 				String id = txtId.getText();
 				String pw = txtPw.getText();
 				
-				vo = dao.memberSearch(id);
-				if(vo.getId() != null) {
-					if(!vo.getPw().equals(pw)) {
-						JOptionPane.showMessageDialog(null, "비밀번호를 다시 확인 후 입력하세요.");
-						txtPw.requestFocus();
-					} else {
-						
-						new memberLogin();						
-					}
-				} else {
-					JOptionPane.showMessageDialog(null, "아이디를 다시 확인 후 입력하세요.");
+				if(id.trim().equals("")) {
+					JOptionPane.showMessageDialog(null, "아이디를 입력하세요");
 					txtId.requestFocus();
+				} else if(pw.trim().equals("")) {
+					JOptionPane.showMessageDialog(null, "비밀번호를 입력하세요");
+					txtPw.requestFocus();
+				} else {
+					vo = dao.memberSearch(id);
+					if(vo.getId() != null) {
+						if(!vo.getPw().equals(pw)) {
+							JOptionPane.showMessageDialog(null, "비밀번호를 다시 확인 후 입력하세요.");
+							txtPw.requestFocus();
+						} else {
+							String rating = vo.getRating();
+							String name = vo.getName();
+							if (rating.equals("관리자")) {
+								dispose();
+								new superPage(id,rating);
+							} else {
+								dispose();
+								new MemberLogin(id,name);	
+							}
+						}
+					} else {
+						JOptionPane.showMessageDialog(null, "해당 아이디는 등록되어 있지 않습니다.");
+						txtId.requestFocus();
+					}
 				}
 			}
 		});
 		
 //		아이디/비밀번호 찾기
 		btnIdPw.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new memberIdPwSearch();
+			public void actionPerformed(ActionEvent e) { 
+//				dispose();
+				new MemberIdPwSearch();
 			}
 		});
 		
 //		회원 가입 버튼
 		btnInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new memberInput();
+				new MemberInput();
 			}
 		});
 		
 //		종료 버튼
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "로그인을 종료합니다");
+				JOptionPane.showMessageDialog(null, "로그인을 종료합니다");				
 				System.exit(0);
 			}
-		});
+		}); 
+	}
+
+//	아이디 비밀번호 찾고 난 후 메인 화면에 찾은 아이디 비밀번호 자동 입력
+	public Main(String id, String pw) {
+		getMainView();
+		txtId.setText(id);
+		txtPw.setText(pw);
 	}
 }
