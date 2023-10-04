@@ -49,6 +49,7 @@ public class MemberInput extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 
+//		JPanel     -----------------------------------------------------------
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -67,6 +68,7 @@ public class MemberInput extends JFrame {
 		contentPane.add(pn3);
 		pn3.setLayout(null);
 		
+//		JLabel     -----------------------------------------------------------
 		lblId = new JLabel("ID");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setFont(new Font("굴림", Font.BOLD, 16));
@@ -108,7 +110,38 @@ public class MemberInput extends JFrame {
 		blbAddress.setFont(new Font("굴림", Font.BOLD, 16));
 		blbAddress.setBounds(25, 476, 69, 28);
 		pn2.add(blbAddress);
+
+		JLabel lblNewLabel_1_1 = new JLabel("(비밀 번호는 숫자 또는 영문 15자 이내로 입력하세요.)");
+		lblNewLabel_1_1.setBounds(112, 129, 380, 22);
+		pn2.add(lblNewLabel_1_1);
 		
+		JLabel lblNewLabel = new JLabel("회 원 가 입 창");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 18));
+		lblNewLabel.setBounds(0, 10, 504, 48);
+		pn1.add(lblNewLabel);
+
+		lblNewLabel_1 = new JLabel("(ID는 숫자 또는 영문 5자 이상 10자 이내로 입력하세요.)");
+		lblNewLabel_1.setBounds(112, 70, 346, 22);
+		pn2.add(lblNewLabel_1);
+		
+		blbE_1 = new JLabel("-");
+		blbE_1.setHorizontalAlignment(SwingConstants.CENTER);
+		blbE_1.setBounds(169, 349, 22, 28);
+		pn2.add(blbE_1);
+		
+		blbE_2 = new JLabel("-");
+		blbE_2.setHorizontalAlignment(SwingConstants.CENTER);
+		blbE_2.setBounds(252, 349, 22, 28);
+		pn2.add(blbE_2);
+		
+		JLabel blbAddress_1 = new JLabel("E-mail");
+		blbAddress_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		blbAddress_1.setFont(new Font("굴림", Font.BOLD, 16));
+		blbAddress_1.setBounds(25, 413, 69, 28);
+		pn2.add(blbAddress_1);
+		
+//		JTextField     -----------------------------------------------------------
 		txtId = new JTextField();
 		txtId.setBounds(112, 35, 128, 28);
 		pn2.add(txtId);
@@ -149,17 +182,6 @@ public class MemberInput extends JFrame {
 		txtPhonenum3.setBounds(276, 350, 57, 28);
 		pn2.add(txtPhonenum3);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("(비밀 번호는 숫자 또는 영문 15자 이내로 입력하세요.)");
-		lblNewLabel_1_1.setBounds(112, 129, 380, 22);
-		pn2.add(lblNewLabel_1_1);
-		
-		
-		JLabel lblNewLabel = new JLabel("회 원 가 입 창");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 18));
-		lblNewLabel.setBounds(0, 10, 504, 48);
-		pn1.add(lblNewLabel);
-		
 		blbE = new JLabel("@");
 		blbE.setBounds(229, 412, 22, 28);
 		pn2.add(blbE);
@@ -168,16 +190,23 @@ public class MemberInput extends JFrame {
 		txtPw.setColumns(10);
 		txtPw.setBounds(112, 98, 128, 28);
 		pn2.add(txtPw);
+
+		txtAddress = new JTextField();
+		txtAddress.setColumns(10);
+		txtAddress.setBounds(112, 476, 128, 28);
+		pn2.add(txtAddress);
 		
+//		JScrollPane     -----------------------------------------------------------
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(371, 413, 122, 28);
 		pn2.add(scrollPane);
 		
+//		JComboBox     -----------------------------------------------------------
 		JComboBox cbEmail = new JComboBox();
 		cbEmail.setModel(new DefaultComboBoxModel(new String[] {"직접입력", "gmaill.com", "naver.com", "kakao.com", "daum.net", "nate.com", "google.com", "hanmail.net"}));
 		scrollPane.setViewportView(cbEmail);
 		
-		
+//		JButton     -----------------------------------------------------------
 		btnInput = new JButton("가입");
 		btnInput.setBounds(328, 10, 76, 37);
 		pn3.add(btnInput);
@@ -186,36 +215,11 @@ public class MemberInput extends JFrame {
 		btnCheck.setBounds(252, 36, 92, 28);
 		pn2.add(btnCheck);
 		
-		lblNewLabel_1 = new JLabel("(ID는 숫자 또는 영문 5자 이상 10자 이내로 입력하세요.)");
-		lblNewLabel_1.setBounds(112, 70, 346, 22);
-		pn2.add(lblNewLabel_1);
-		
-		blbE_1 = new JLabel("-");
-		blbE_1.setHorizontalAlignment(SwingConstants.CENTER);
-		blbE_1.setBounds(169, 349, 22, 28);
-		pn2.add(blbE_1);
-		
-		blbE_2 = new JLabel("-");
-		blbE_2.setHorizontalAlignment(SwingConstants.CENTER);
-		blbE_2.setBounds(252, 349, 22, 28);
-		pn2.add(blbE_2);
-		
-		JLabel blbAddress_1 = new JLabel("E-mail");
-		blbAddress_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		blbAddress_1.setFont(new Font("굴림", Font.BOLD, 16));
-		blbAddress_1.setBounds(25, 413, 69, 28);
-		pn2.add(blbAddress_1);
-		
-		txtAddress = new JTextField();
-		txtAddress.setColumns(10);
-		txtAddress.setBounds(112, 476, 128, 28);
-		pn2.add(txtAddress);
-		
 		btnClose = new JButton("창닫기");
 		btnClose.setBounds(416, 10, 76, 37);
 		pn3.add(btnClose);
 		
-//		-----------------------------------------------------------------
+//		ButtonGroup -----------------------------------------------------------------
 		rdbtnMale = new JRadioButton("남성");
 		rdbtnMale.setBounds(124, 287, 67, 28);
 		btnGroup.add(rdbtnMale);
@@ -225,10 +229,11 @@ public class MemberInput extends JFrame {
 		rdbtnFeMale.setBounds(215, 287, 67, 28);
 		btnGroup.add(rdbtnFeMale);
 		pn2.add(rdbtnFeMale);		
-//		-------------------------------------------------------------   //
+//		-------------------------------------------------------------------
+//		JButton     -----------------------------------------------------------
+//		중복 확인 버튼
 		
-//	중복 확인 버튼
-	btnCheck.addActionListener(new ActionListener() {
+		btnCheck.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			String id = txtId.getText();
 			if(id.trim().equals("")) {
@@ -258,7 +263,6 @@ public class MemberInput extends JFrame {
 		}
 	});
 	
-//	아이디 중복 확인 했을때만 가입 가능하게 하기
 //		가입 버튼
 		btnInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -338,7 +342,8 @@ public class MemberInput extends JFrame {
 				} else {
 					gender = "여자";
 				}
-		
+				
+//				아이디 중복 확인 했을때만 가입 가능하게 하기
 				if(idCheck == 0) {
 					JOptionPane.showMessageDialog(null, "ID 중복을 확인해 주세요.");
 				} else {

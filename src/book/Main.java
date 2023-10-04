@@ -13,6 +13,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
@@ -26,7 +30,7 @@ public class Main extends JFrame {
 	private JPasswordField txtPw;
 	
 	DAO dao = new DAO();
-		
+	MemberVO mvo = null;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -51,6 +55,7 @@ public class Main extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 
+//		JPanel     -----------------------------------------------------------
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -59,6 +64,7 @@ public class Main extends JFrame {
 		contentPane.add(pn1);
 		pn1.setLayout(null);
 		
+//		JLabel     -----------------------------------------------------------
 		lblLogin = new JLabel("LOGIN");
 		lblLogin.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLogin.setFont(new Font("굴림", Font.BOLD, 16));
@@ -81,11 +87,17 @@ public class Main extends JFrame {
 		lblText.setBounds(12, 232, 245, 15);
 		pn1.add(lblText);
 		
+//		JTextField     -----------------------------------------------------------
 		txtId = new JTextField();
 		txtId.setBounds(106, 71, 182, 28);
 		pn1.add(txtId);
 		txtId.setColumns(10);
 		
+		txtPw = new JPasswordField();
+		txtPw.setBounds(106, 118, 182, 28);
+		pn1.add(txtPw);
+		
+//		JButton     -----------------------------------------------------------
 		btnLogin = new JButton("로그인");
 		btnLogin.setBounds(205, 169, 83, 23);
 		pn1.add(btnLogin);
@@ -102,19 +114,16 @@ public class Main extends JFrame {
 		btnIdPw.setBounds(79, 169, 114, 23);
 		pn1.add(btnIdPw);
 		
-		txtPw = new JPasswordField();
-		txtPw.setBounds(106, 118, 182, 28);
-		pn1.add(txtPw);
-		
-//		-------------------------------------------------------------------     //
-		
+//		------------------------------------------------------------------- 
+//		JButton    -------------------------------------------------------- 
 //		로그인 버튼
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MemberVO vo = new MemberVO();
+				mvo = new MemberVO();
 				String id = txtId.getText();
 				String pw = txtPw.getText();
 				
+//				아이디/비밀번호 공백 배제
 				if(id.trim().equals("")) {
 					JOptionPane.showMessageDialog(null, "아이디를 입력하세요");
 					txtId.requestFocus();
@@ -122,17 +131,17 @@ public class Main extends JFrame {
 					JOptionPane.showMessageDialog(null, "비밀번호를 입력하세요");
 					txtPw.requestFocus();
 				} else {
-					vo = dao.memberSearch(id);
-					if(vo.getId() != null) {
-						if(!vo.getPw().equals(pw)) {
+					mvo = dao.memberSearch(id);
+					if(mvo.getId() != null) {
+						if(!mvo.getPw().equals(pw)) {
 							JOptionPane.showMessageDialog(null, "비밀번호를 다시 확인 후 입력하세요.");
 							txtPw.requestFocus();
 						} else {
-							String rating = vo.getRating();
-							String name = vo.getName();
+							String rating = mvo.getRating();
+							String name = mvo.getName();
 							if (rating.equals("관리자")) {
 								dispose();
-								new superPage(id,rating);
+								new SuperPage(id,rating);
 							} else {
 								dispose();
 								new MemberLogin(id,name);	
@@ -146,10 +155,10 @@ public class Main extends JFrame {
 			}
 		});
 		
-//		아이디/비밀번호 찾기
+//		아이디/비밀번호 찾기 버튼
 		btnIdPw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
-//				dispose();
+				dispose();
 				new MemberIdPwSearch();
 			}
 		});
@@ -170,6 +179,7 @@ public class Main extends JFrame {
 		}); 
 	}
 
+//	------------------------------------------------------------------- 
 //	아이디 비밀번호 찾고 난 후 메인 화면에 찾은 아이디 비밀번호 자동 입력
 	public Main(String id, String pw) {
 		getMainView();

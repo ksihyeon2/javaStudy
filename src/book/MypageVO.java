@@ -3,9 +3,9 @@
 public class MypageVO {
 	private int idx;
 	private String id;
-	private String name;
-	private int point;
-	private String buydate;
+	private String bookname;
+	private int item;
+	private int price;
 	
 	public int getIdx() {
 		return idx;
@@ -15,30 +15,31 @@ public class MypageVO {
 	}
 	public String getId() {
 		return id;
-	}
+	} 
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getPoint() {
-		return point;
+	public String getBookname() {
+		return bookname;
 	}
-	public void setPoint(int point) {
-		this.point = point;
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
 	}
-	public String getBuydate() {
-		return buydate;
+	public int getItem() {
+		return item;
 	}
-	public void setBuydate(String buydate) {
-		this.buydate = buydate;
+	public void setItem(int item) {
+		this.item = item;
 	}
-	public String getName() {
-		return name;
+	public int getPrice() {
+		return price;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setPrice(int pricetot) {
+		this.price = pricetot;
 	}
 	@Override
 	public String toString() {
-		return "mypageVO [idx=" + idx + ", id=" + id + ", name=" + name + ", point=" + point + ", buydate=" + buydate + "]";
+		return "shoppingVO [idx=" + idx + ", id=" + id + ", bookname=" + bookname + ", item=" + item + ", pricetot="
+				+ price + "]";
 	}
 }

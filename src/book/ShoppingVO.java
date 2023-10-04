@@ -3,9 +3,8 @@ package book;
 public class ShoppingVO {
 	private int idx;
 	private String id;
-	private String bookname;
-	private int item;
-	private int pricetot;
+	private int point;
+	private String buydate;
 	
 	public int getIdx() {
 		return idx;
@@ -15,31 +14,24 @@ public class ShoppingVO {
 	}
 	public String getId() {
 		return id;
-	} 
+	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getBookname() {
-		return bookname;
+	public int getPoint() {
+		return point;
 	}
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
+	public void setPoint(int point) {
+		this.point = point;
 	}
-	public int getItem() {
-		return item;
+	public String getBuydate() {
+		return buydate;
 	}
-	public void setItem(int item) {
-		this.item = item;
-	}
-	public int getPricetot() {
-		return pricetot;
-	}
-	public void setPricetot(int pricetot) {
-		this.pricetot = pricetot;
+	public void setBuydate(String buydate) {
+		this.buydate = buydate;
 	}
 	@Override
 	public String toString() {
-		return "shoppingVO [idx=" + idx + ", id=" + id + ", bookname=" + bookname + ", item=" + item + ", pricetot="
-				+ pricetot + "]";
+		return "mypageVO [idx=" + idx + ", id=" + id + ", point=" + point + ", buydate=" + buydate + "]";
 	}
 }

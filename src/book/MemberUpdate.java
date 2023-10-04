@@ -27,7 +27,7 @@ public class MemberUpdate extends JFrame {
 	DAO dao = new DAO();
 	MemberVO vo;
 
-	public MemberUpdate(String id) {
+	public MemberUpdate(String id,String name) {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(520, 682);
@@ -275,6 +275,7 @@ public class MemberUpdate extends JFrame {
 				int ans = JOptionPane.showConfirmDialog(null, "수정을 종료하시겠습니까?","수정창",JOptionPane.YES_NO_OPTION);
 				if(ans == 0) {
 					dispose();
+					new MemberMypage(id, name);
 				}
 			}
 		});

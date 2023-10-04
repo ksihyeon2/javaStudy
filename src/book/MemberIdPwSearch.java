@@ -37,7 +37,8 @@ public class MemberIdPwSearch extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
-
+		
+//		JPanel     -----------------------------------------------------------
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -46,27 +47,35 @@ public class MemberIdPwSearch extends JFrame {
 		contentPane.add(pn1);
 		pn1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("ID 찾기");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 16));
-		lblNewLabel.setBounds(35, 27, 114, 27);
-		pn1.add(lblNewLabel);
+//		JLabel     -----------------------------------------------------------
+		JLabel lbl1 = new JLabel("ID 찾기");
+		lbl1.setFont(new Font("굴림", Font.BOLD, 16));
+		lbl1.setBounds(35, 27, 114, 27);
+		pn1.add(lbl1);
 		
-		JLabel lblNewLabel_1 = new JLabel("성 명");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(12, 78, 71, 28);
-		pn1.add(lblNewLabel_1);
+		JLabel lbl2 = new JLabel("성 명");
+		lbl2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbl2.setFont(new Font("굴림", Font.BOLD, 16));
+		lbl2.setBounds(12, 78, 71, 28);
+		pn1.add(lbl2);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("E-mail");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1_1.setFont(new Font("굴림", Font.BOLD, 16));
-		lblNewLabel_1_1.setBounds(12, 121, 71, 28);
-		pn1.add(lblNewLabel_1_1);
+		JLabel lbl3 = new JLabel("E-mail");
+		lbl3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbl3.setFont(new Font("굴림", Font.BOLD, 16));
+		lbl3.setBounds(12, 121, 71, 28);
+		pn1.add(lbl3);
 		
 		JLabel blbE = new JLabel("@");
 		blbE.setBounds(222, 122, 22, 28);
 		pn1.add(blbE);
+
+		JLabel lbl4 = new JLabel("ID");
+		lbl4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbl4.setFont(new Font("굴림", Font.BOLD, 16));
+		lbl4.setBounds(12, 216, 71, 28);
+		pn1.add(lbl4);
 		
+//		JTextField     -----------------------------------------------------------
 		txtEmail1 = new JTextField();
 		txtEmail1.setColumns(10);
 		txtEmail1.setBounds(108, 121, 109, 28);
@@ -87,12 +96,13 @@ public class MemberIdPwSearch extends JFrame {
 		txtID.setBounds(108, 216, 140, 28);
 		pn1.add(txtID);
 		
+//		JComboBox     -----------------------------------------------------------
 		JComboBox cbEmail = new JComboBox();
 		cbEmail.setModel(new DefaultComboBoxModel(new String[] {"직접입력", "gmaill.com", "naver.com", "kakao.com", "daum.net", "nate.com", "google.com", "hanmail.net"}));
 		cbEmail.setBounds(367, 122, 120, 26);
 		pn1.add(cbEmail);
 		
-		
+//		JButton     -----------------------------------------------------------
 		btnIdSearch = new JButton("ID 검색");
 		btnIdSearch.setBounds(108, 159, 81, 33);
 		pn1.add(btnIdSearch);
@@ -105,15 +115,9 @@ public class MemberIdPwSearch extends JFrame {
 		btnClose.setBounds(404, 279, 94, 33);
 		pn1.add(btnClose);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("ID");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1_1_1.setFont(new Font("굴림", Font.BOLD, 16));
-		lblNewLabel_1_1_1.setBounds(12, 216, 71, 28);
-		pn1.add(lblNewLabel_1_1_1);
-		
-		
 //		----------------------------------------------------------------------------------    //
-//		ID 찾기
+//		JButton     -----------------------------------------------------------
+//		ID 찾기 버튼
 		btnIdSearch.addActionListener(new ActionListener() {
 			@SuppressWarnings("unlikely-arg-type")
 			public void actionPerformed(ActionEvent e) {				

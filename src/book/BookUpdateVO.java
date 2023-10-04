@@ -5,32 +5,41 @@ public class BookUpdateVO {
 	private String id;
 	private String name;
 	private String bookname;
-	public int getIdx() {
+	private String situation;
+
+	int getIdx() {
 		return idx;
 	}
-	public void setIdx(int idx) {
+	void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public String getId() {
+	String getId() {
 		return id;
 	}
-	public void setId(String id) {
+	void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
+	String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	void setName(String name) {
 		this.name = name;
 	}
-	public String getBookname() {
+	String getBookname() {
 		return bookname;
 	}
-	public void setBookname(String bookname) {
+	void setBookname(String bookname) {
 		this.bookname = bookname;
+	}
+	String getSituation() {
+		return situation;
+	}
+	void setSituation(String situation) {
+		this.situation = situation;
 	}
 	@Override
 	public String toString() {
-		return "bookUpdateVO [idx=" + idx + ", id=" + id + ", name=" + name + ", bookname=" + bookname + "]";
+		return "BookUpdateVO [idx=" + idx + ", id=" + id + ", name=" + name + ", bookname=" + bookname + ", situation="
+				+ situation + "]";
 	}
 }
